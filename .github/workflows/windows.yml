@@ -1,0 +1,15 @@
+name: Windows Vault
+on:
+  push:
+    paths: ['vault-kdf.ps1', 'tests/windows-kdf.ps1', '.github/workflows/windows.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  worker:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify CNG worker with a long synthetic password
+        shell: powershell
+        run: tests/windows-kdf.ps1
