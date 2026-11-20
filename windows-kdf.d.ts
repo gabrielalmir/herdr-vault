@@ -1,0 +1,1 @@
+export function deriveOnWindows(password: Uint8Array, salt: Uint8Array, cx: import("gpui-kit").AsyncContext, workerPath: string, operation?: { check(): void; wait<T>(work: Promise<T>): Promise<T> }): Promise<Uint8Array>;
